@@ -14,7 +14,7 @@ function initSocket()
         switch(data.event)
         {
             case 'loadplayers':
-                if( data.players != undefined )
+                if( data.players !== undefined )
                 {
                     for( var i = 0; i < data.players.length; i++)
                     {
@@ -38,7 +38,7 @@ function initSocket()
                 jQuery('#player2').val( data.players[1].name );
                 jQuery('.winbutton').buttonMarkup("refresh");
 
-                if( data.players != undefined )
+                if( data.players !== undefined )
                 {
                     for( var i = 0; i < data.players.length; i++)
                     {
@@ -55,11 +55,11 @@ function initSocket()
                 jQuery('#answerbox').val( "" );
                 jQuery.mobile.changePage( "#end_round_page" );
 
-                jQuery('#roundbank').html(data.roundbank)
-                jQuery('#globalbank').html(data.globalbank)
-                jQuery('#weakestlink').html(data.weakestlink)
-                jQuery('#strongestlink').html(data.strongestlink)
-                jQuery('#roundnum').html(data.roundnumber)
+                jQuery('#roundbank').html(data.roundbank);
+                jQuery('#globalbank').html(data.globalbank);
+                jQuery('#weakestlink').html(data.weakestlink);
+                jQuery('#strongestlink').html(data.strongestlink);
+                jQuery('#roundnum').html(data.roundnumber);
             break;
 
             case 'roundreply':
@@ -82,7 +82,7 @@ function initSocket()
 
             case 'loadvotelist':
                 jQuery('#votelist').html("<p class='requesting'>Requesting List...</p>");
-                if( data.players != undefined )
+                if( data.players !== undefined )
                 {
                     for( var i = 0; i < data.players.length; i++)
                     {
@@ -96,7 +96,9 @@ function initSocket()
                 }
                 jQuery('.requesting').hide();
 
-            default: break;
+            break;
+
+            default:
                 console.log(data);
         }
     });

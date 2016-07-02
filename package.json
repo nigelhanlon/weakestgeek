@@ -1,9 +1,23 @@
 {
-  "name": "application-name",
-  "version": "0.0.1",
+  "name": "weakestgeek",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nigelhanlon/weakestgeek.git"
+  },
+  "keywords": [
+    "weakest",
+    "geek",
+    "game"
+  ],
+  "author": "Nigel Hanlon <nigel@mapwolf.net>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/nigelhanlon/immortalbloodlines/issues"
   },
   "dependencies": {
     "express": "3.2.4",

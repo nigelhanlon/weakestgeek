@@ -27,7 +27,7 @@ function initSocket()
             break;
 
             case 'startcountdown':
-                startCountdown(data.value)
+                startCountdown(data.value);
             break;
 
             case 'loadpage':
@@ -47,7 +47,7 @@ jQuery(document).ready(function(){
 
 function updateBankValue(value)
 {
-    if(value == 0) // reset bank
+    if(value === 0) // reset bank
     {
         for(var i = 0; i < points.length; i++)
         {
@@ -101,7 +101,7 @@ function startCountdown(start)
             jQuery('#timer').html( timeString );
             seconds = seconds - 1;
         }
-        else if(seconds == 0)
+        else if(seconds === 0)
         {
             jQuery('#timer').html( "0:00" );
             clearInterval(countdown);

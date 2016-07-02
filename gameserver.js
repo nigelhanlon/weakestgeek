@@ -14,8 +14,8 @@ var Game = function(){
 
     this.roundNumber = 1;
     this.roundTimes = [150,140,130,120,110,100];
-    //this.roundTimes = [11,12,13,14,15,16];
-    this.roundJSON = { 'round': this.roundNumber, 'time': this.roundTimes[this.roundNumber - 1] };;
+
+    this.roundJSON = { 'round': this.roundNumber, 'time': this.roundTimes[this.roundNumber - 1] };
 
     this.nextRound = function(){
         if(this.roundNumber > this.roundTimes.length)
@@ -28,11 +28,11 @@ var Game = function(){
             this.roundJSON = { 'round': this.roundNumber, 'time': this.roundTimes[this.roundNumber - 1] };
         }
         return this.roundJSON;
-    }
+    };
 
     /* We need to loop though players */
     this.nextPlayerID = function(){
-        if( (this.lastPlayerID % this.playerCount) == 0 )
+        if( (this.lastPlayerID % this.playerCount) === 0 )
         {
             this.lastPlayerID = 1;
             return this.lastPlayerID;
@@ -42,11 +42,11 @@ var Game = function(){
             this.lastPlayerID++;
             return this.lastPlayerID;
         }
-    }
+    };
 
     this.h2hplayerid = 1;
     this.toggleh2h = function(){
-        if(this.h2hplayerid == 1)
+        if(this.h2hplayerid === 1)
         {
             this.h2hplayerid = 2;
         }
@@ -54,7 +54,7 @@ var Game = function(){
         {
             this.h2hplayerid = 1;
         }
-    }
+    };
 
     this.eliminatePlayer = function( playerName )
     {
@@ -65,7 +65,7 @@ var Game = function(){
                 this.players[i].pop();
             }
         }
-    }
+    };
 
     this.h2hQuestionNumber = 0;
     this.nextH2HID = function(playerid)
@@ -73,18 +73,18 @@ var Game = function(){
         var id = 'p' + playerid + '_q' + this.h2hQuestionNumber + '_';
         this.h2hQuestionNumber++;
         return id;
-    }
-}
+    };
+};
 
 var QuestionBank = require('./db/quiz.json'); // Load quiz questions.
 var Players = require('./db/players.json'); // Load Player List.
 
-if(QuestionBank == undefined || QuestionBank == null || QuestionBank == []){
+if(QuestionBank === undefined || QuestionBank === null || QuestionBank === []){
     console.log("Could not load Question JSON.");
     process.exit(1);
 }
 
-if(Players == undefined || Players == null || Players == []){
+if(Players === undefined || Players === null || Players === []){
     console.log("Could not load Players JSON.");
     process.exit(1);
 }
@@ -206,7 +206,7 @@ io.sockets.on('connection', function (socket){
             break;
 
             case 'gamepageloaded':
-                var questionJSON = nextQuestionJSON();
+                questionJSON = nextQuestionJSON();
                 socket.broadcast.emit('feedbackevent', questionJSON );
                 socket.emit('uievent', questionJSON );
                 socket.emit('uievent', { 'event':'startcountdown', 'value': gameserver.roundJSON.time });
@@ -214,7 +214,7 @@ io.sockets.on('connection', function (socket){
             break;
 
             case 'h2hrightevent':
-                var questionJSON = nextQuestionJSON();
+                questionJSON = nextQuestionJSON();
                 socket.emit('feedbackevent', questionJSON );
                 socket.broadcast.emit('uievent', questionJSON );
 
@@ -225,7 +225,7 @@ io.sockets.on('connection', function (socket){
             break;
 
             case 'h2hwrongevent':
-                var questionJSON = nextQuestionJSON();
+                questionJSON = nextQuestionJSON();
                 socket.emit('feedbackevent', questionJSON );
                 socket.broadcast.emit('uievent', questionJSON );
 
@@ -236,7 +236,7 @@ io.sockets.on('connection', function (socket){
             break;
 
             case 'rightevent':
-                var questionJSON = nextQuestionJSON();
+                questionJSON = nextQuestionJSON();
                 socket.emit('feedbackevent', questionJSON );
                 socket.broadcast.emit('uievent', questionJSON );
 
@@ -247,7 +247,7 @@ io.sockets.on('connection', function (socket){
             break;
 
             case 'wrongevent':
-                var questionJSON = nextQuestionJSON();
+                questionJSON = nextQuestionJSON();
                 socket.emit('feedbackevent', questionJSON );
                 socket.broadcast.emit('uievent', questionJSON );
 
@@ -326,6 +326,8 @@ io.sockets.on('connection', function (socket){
             case 'gameover':
                 socket.broadcast.emit('uievent', { 'event':'loadpage', 'page':'transition?banner=gameover' });
 
+            break;
+            
             default:
                 console.log('==> Unknown Event:');
                 console.log(data);
