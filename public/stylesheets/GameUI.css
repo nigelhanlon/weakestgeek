@@ -1,0 +1,76 @@
+body{ background-image: url(/images/background.jpg); overflow-y:hidden; }
+
+.wlbutton{  height: 53px; width:140px;}
+.h2hbutton{ height: 53px; width:120px; }
+.h2hplayer{ height: 35px; width: 255px; background-color: black; border-radius: 50px; color: white; padding: 10px;
+opacity: 0.6; text-align: center; font-size: 28px; font-weight: bold; }
+
+#banktable{ padding-left: 50px; padding-top: 20px;}
+#gamebanner{ position: relative; top: 5px; float: right; right: 85px; height: 75px; }
+#h2h_gamebanner{ position: relative; top: 5px; left:9%; height: 75px; }
+#questionbox{
+    width: 675px;
+    height: 440px;
+    position: relative;
+    float: right;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    opacity: 0.6;
+    right: 60px;
+    top: 20px;
+    font-size: 48px;
+    text-align: center;
+}
+#h2h_questionbox{
+    width: 900px;
+    height: 400px;
+    position: relative;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    opacity: 0.6;
+    margin-left:auto;
+    margin-right:auto;
+    top: 20px;
+    font-size: 48px;
+    text-align: center;
+}
+#internalquestion{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#h2htable{
+    width: 900px;
+    left: 60px;
+    position: relative;
+    top: 50px;
+}
+
+#timer{
+    width: 230px;
+    height: 110px;
+    position: relative;
+    float: right;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+    opacity: 0.6;
+    right: 60px;
+    top: -150px;
+    font-size: 100px;
+    text-align: center;
+}
+
+#banktotal{
+    position: absolute;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    left: 123px;
+    top: 675px;
+}

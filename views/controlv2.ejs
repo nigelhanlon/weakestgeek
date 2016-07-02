@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weakest Geek Control</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/stylesheets/jquery.mobile-1.3.1.min.css" />
+    <link rel="stylesheet" href="/stylesheets/mobilecss.min.css" />
+    <link rel="stylesheet" href="/stylesheets/Controllerv2.css" />
+</head>
+<body>
+
+
+    <!-- Controller Start Page -->
+    <div data-role="page" id="startpage">
+
+        <div data-role="header">
+            <h1>Weakest Geek Remote</h1>
+        </div>
+
+        <div data-role="content">
+
+            <center>
+
+                <br/>
+                <br/>
+                <br/>
+                <img src="/images/banner.png" id="gamebanner" />
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <img src="/images/ArcadeConLogo.png" id="conlogo" />
+                <br/>
+                <br/>
+                <br/>
+                <blink class="start">PRESS START</blink>
+                <br/>
+                <br/>
+                <br/>
+                <a href="#players_ready" data-role="button" data-theme="a" onclick="UIHandler(this,'mainstart');" id="startbutton" rel="external">Start</a>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+            </center>
+
+        </div>
+
+        <div data-role="footer">
+            <h4 class="status">Waiting for server..</h4>
+        </div>>
+    </div>
+
+
+    <!-- Are the players ready? -->
+    <div data-role="page" id="players_ready">
+
+        <div data-role="header">
+            <h1>Players Ready?</h1>
+        </div>
+
+        <div data-role="content">
+            <h2>Check Players</h2>
+            <p>The game server currently has <%= player_count %> teams registered.</p>
+            <p>Each of the teams are listed below.</p>
+            <p>Please make sure they are standing in the following order as questions will be asked in this sequence.</p>
+
+        <form id="playerlist">
+
+        </form>
+        <br/>
+        <p>If this is correct, tap Start Game to continue.</p>
+        <a href="#start_round_page" onclick="UIHandler(this,'roundinfo');" data-role="button">Start Game</a>
+        </div>
+
+        <div data-role="footer">
+            <h4 class="status">Waiting for server..</h4>
+        </div>>
+    </div>
+
+
+    <!-- Start Round Page -->
+    <div data-role="page" id="start_round_page">
+
+        <div data-role="header">
+            <h1>Start Round</h1>
+        </div>
+
+        <div data-role="content">
+            <center>
+                <br/>
+                <h2 style="font-size:60px;">Round <span id="roundnumber"></span>!</h2>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <p>This round will last for:</p>
+                <p class="clockStyle" id="totalroundtime">Requesting...</p>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <p>She's all set Captain. Tap Start Round.</p>
+            </center>
+
+            <br/>
+            <p></p>
+            <a href="#round_page" onclick="UIHandler(this,'startround');" data-role="button">Start Round</a>
+
+        </div>
+
+        <div data-role="footer">
+            <h4 class="status">Waiting for server..</h4>
+        </div>>
+    </div>
+
+
+    <!-- Round Page -->
+    <div data-role="page" id="round_page">
+
+        <div data-role="header">
+            <h1>Game Round</h1>
+        </div>
+
+        <div data-role="content">
+            <form>
+                <label for="questionbox">Question:</label>
+                <textarea cols="40" readonly rows="20" name="questionbox" id="questionbox" style="height: 200px;"></textarea>
+
+                <label for="answerbox">Answer:</label>
+                <textarea cols="40" readonly rows="8" name="answerbox" id="answerbox" style="height: 100px;"></textarea>
+            </form>
+            <br/><br/>
+            <p>
+              <a href="#" data-role="button" data-theme="a" onclick="UIHandler(this,'right');" rel="external" id="rightbutton" style="margin-bottom: 25px; padding-bottom: 15px;">Right</a>
+              <a href="#" data-role="button" data-theme="a" onclick="UIHandler(this,'wrong');" rel="external" id="wrongbutton" style="margin-bottom: 25px; padding-bottom: 15px;">Wrong</a>
+              <a href="#" data-role="button" data-theme="a" onclick="UIHandler(this,'bank');" rel="external" id="bankbutton" style="margin-bottom: 25px; padding-bottom: 15px;">Bank</a>
+            </p>
+
+            <br/>
+            <a href="#end_round_page" onclick="UIHandler(this,'endround');" data-role="button">End Round</a>
+            <br/>
+        </div>
+
+        <div data-role="footer">
+            <h4 class="status">Waiting for server..</h4>
+        </div>>
+    </div>
+
+
+    <!-- End of Round Page -->
+    <div data-role="page" id="end_round_page">
+
+        <div data-role="header">
+            <h1>End of Round</h1>
+        </div>
+
+        <div data-role="content">
+            <h2>Round <span id="roundnum"></span></h2>
+
+        <center>
+            <table id="round_table">
+                <tr>
+                    <td class="key">
+                        Strongest Link
+                    </td>
+
+                    <td class="value">
+                        <span id="strongestlink">Requesting..</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="key">
+                        Weakest Link
+                    </td>
+
+                    <td class="value">
+                        <span id="weakestlink">Requesting..</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="key">
+                        Banked this round
+                    </td>
+
+                    <td class="value">
+                        <span id="roundbank">Requesting..</span> pts.
+                    </td>
+                </tr>
+                <tr>
+                    <td class="key">
+                        Overall Bank Total
+                    </td>
+
+                    <td class="value">
+                        <span id="globalbank">Requesting..</span> pts.
+                    </td>
+                </tr>
+            </table>
+        </center>
+
+        <br/>
+        <br/>
+        <p>Tap next to begin voting.</p>
+        <br/>
+        <br/>
+        <br/>
+        <a href="#lets_vote" onclick="UIHandler(this,'letsvote');" data-role="button">Next</a>
+        </div>
+
+        <div data-role="footer">
+            <h4 class="status">Waiting for server..</h4>
+        </div>>
+    </div>
+
+
+    <!-- Lets Vote! -->
+    <div data-role="page" id="lets_vote">
+
+        <div data-role="header">
+            <h1>Voting time!</h1>
+        </div>
+
+        <div data-role="content">
+            <h2>Voting time!</h2>
+            <p>Ask the players to vote and once you have a decision, tap the player to eliminate below.</p>
+
+        <form id="votelist">
+            <p class="requesting">Requesting List...</p>
+        </form>
+        <br/>
+        </div>
+
+        <div data-role="footer">
+            <h4 class="status">Waiting for server..</h4>
+        </div>>
+    </div>
+
+
+    <!-- Confirm Elimination Dialog -->
+    <div data-role="dialog" id="confirm_vote">
+
+        <div data-role="header">
+            <h1>Confirm Vote</h1>
+        </div>
+
+        <div data-role="content">
+            <h2>Sure?</h2>
+            <p>You are about to eliminate <span id="playervote">Nigel</span>.</p>
+
+        <a href="#" onclick="UIHandler(this,'eliminate');" player="" id="confirmvote" data-role="button">Confirm</a>
+        <a href="#" onclick="$('.ui-dialog').dialog( 'close' );" data-role="button">Cancel</a>
+        </div>
+
+        <div data-role="footer">
+        </div>
+    </div>
+
+    <!-- Player Eliminated! -->
+    <div data-role="page" id="vote_complete">
+
+        <div data-role="header">
+            <h1>Player Eliminated</h1>
+        </div>
+
+        <div data-role="content">
+            <h2>Player Eliminated!</h2>
+            <p>He's dead Jim.</p>
+            <p>Get ready for the next round. Tap next to continue.</p>
+        <br/>
+        <a href="#start_round_page" onclick="UIHandler(this,'roundinfo');" data-role="button">Next</a>
+        </div>
+
+        <div data-role="footer">
+            <h4 class="status">Waiting for server..</h4>
+        </div>>
+    </div>
+
+    <!-- Start Head to Head Round -->
+    <div data-role="page" id="start_h2h_page">
+
+        <div data-role="header">
+            <h1>Players Ready?</h1>
+        </div>
+
+        <div data-role="content">
+            <p>Our final battle!</p>
+            <p>There is no time limit on this round.</p>
+            <br/>
+            <h2>You are responsible for picking the winner of the Head to Head Game.</h2>
+
+            <br/>
+            <br/>
+            <br/>
+            <p>When you are ready, tap next to start the final round!</p>
+            <br/>
+            <a href="#h2h_round" onclick="UIHandler(this,'starth2h');" data-role="button">Next</a>
+        </div>
+
+        <div data-role="footer">
+            <h4 class="status">Waiting for server..</h4>
+        </div>>
+    </div>
+
+
+    <!-- Head to Head Round -->
+    <div data-role="page" id="h2h_round">
+
+        <div data-role="header">
+            <h1>Final Round</h1>
+        </div>
+
+        <div data-role="content">
+            <form>
+                <label for="h2hquestionbox">Question:</label>
+                <textarea cols="40" readonly rows="20" name="questionbox" id="h2hquestionbox" style="height: 200px;"></textarea>
+
+                <label for="h2hanswerbox">Answer:</label>
+                <textarea cols="40" readonly rows="8" name="answerbox" id="h2hanswerbox" style="height: 100px;"></textarea>
+            </form>
+            <br/><br/>
+            <p>
+              <a href="#" data-role="button" data-theme="a" onclick="UIHandler(this,'h2hright');" rel="external" id="rightbutton" style="margin-bottom: 25px; padding-bottom: 15px;">Right</a>
+              <a href="#" data-role="button" data-theme="a" onclick="UIHandler(this,'h2hwrong');" rel="external" id="wrongbutton" style="margin-bottom: 25px; padding-bottom: 15px;">Wrong</a>
+            </p>
+            <br/>
+            <h2>Select Winner Below:</h2>
+
+            <form id="winlist">
+                <p class="requesting">Requesting List...</p>
+            </form>
+
+            <br/>
+            <br/>
+        </div>
+
+        <div data-role="footer">
+            <h4 class="status">Waiting for server..</h4>
+        </div>>
+    </div>
+
+    <!-- Confirm Winner Dialog -->
+    <div data-role="dialog" id="confirm_win">
+
+        <div data-role="header">
+            <h1>Confirm Winner</h1>
+        </div>
+
+        <div data-role="content">
+            <h2>Sure?</h2>
+            <p>You are about to declare <span id="playerwin"></span> the winner.</p>
+
+        <a href="#" onclick="UIHandler(this,'winner');" player="" id="confirmwin" data-role="button">Confirm</a>
+        <a href="#" onclick="$('.ui-dialog').dialog( 'close' );" data-role="button">Cancel</a>
+        </div>
+
+        <div data-role="footer">
+        </div>
+    </div>
+
+    <!-- End Page -->
+    <div data-role="page" id="end_page">
+
+        <div data-role="header">
+            <h1>End Game</h1>
+        </div>
+
+        <div data-role="content">
+            <h1>The END</h1>
+            <h2>Click below to show game over screen when ready (or Cassie will kill me).</h2>
+            <a href="#" onclick="UIHandler(this,'gameover');"" data-role="button">Game Over</a>
+
+        </div>
+
+        <div data-role="footer">
+            <h4 class="status">Waiting for server..</h4>
+        </div>>
+    </div>
+
+    <script type="text/javascript" src="/javascripts/jquery-1.7.1.min.js"></script>
+    <script src="/javascripts/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/javascripts/Controllerv2.js"></script>
+</body>
+
+</html>

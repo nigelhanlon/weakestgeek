@@ -1,0 +1,11 @@
+[
+{"playerid":1, "name":"Sarah & Tiffany",  "banked":0, "correct":0, "wrong":0, "eliminated":false },
+{"playerid":2, "name":"Cillian & Daniel", "banked":0, "correct":0, "wrong":0, "eliminated":false },
+{"playerid":3, "name":"Osato & Ades",   "banked":0, "correct":0, "wrong":0, "eliminated":false },
+{"playerid":4, "name":"Sean & Cormac", "banked":0, "correct":0, "wrong":0, "eliminated":false },
+
+{"playerid":5, "name":"Kevin & Damien",    "banked":0, "correct":0, "wrong":0, "eliminated":false },
+{"playerid":6, "name":"Kitty & Ceire",   "banked":0, "correct":0, "wrong":0, "eliminated":false },
+{"playerid":7, "name":"Conrad & James",  "banked":0, "correct":0, "wrong":0, "eliminated":false },
+{"playerid":8, "name":"Mart & Elizabeth",  "banked":0, "correct":0, "wrong":0, "eliminated":false }
+]

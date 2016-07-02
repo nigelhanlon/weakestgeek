@@ -1,0 +1,75 @@
+@font-face {
+  font-family: 'Press Start 2P';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Press Start 2P'), local('PressStart2P-Regular'), url(/stylesheets/pushstart.woff) format('woff');
+}
+
+@-webkit-keyframes blink {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+
+blink {
+  -webkit-animation-name: blink;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: 1s;
+}
+
+body{ background-image: url(/images/background.jpg); }
+
+#roundmsg{
+    color: black;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    position: relative;
+    top: 60px;
+    font-size: 64px;
+}
+
+#round_end_msg{
+    color: black;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    position: relative;
+    top: 10px;
+    font-size: 64px;
+}
+
+#vote_msg{
+    color: black;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    position: relative;
+    top: 10px;
+    font-size: 54px;
+}
+
+
+#eliminated_msg{
+    color: black;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    position: relative;
+    top: 10px;
+    font-size: 54px;
+}
+
+#winner_msg{
+    color: black;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    position: relative;
+    top: 10px;
+    font-size: 54px;
+}
+
+#final{
+    color: black;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    position: relative;
+    top: 5px;
+    font-size: 54px;
+}

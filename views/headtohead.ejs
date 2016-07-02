@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weakest Geek!</title>
+    <link rel='stylesheet' href='/stylesheets/GameUI.css' />
+  </head>
+  <body>
+    <img src="/images/banner.png" id="h2h_gamebanner" />
+    <div id="h2h_questionbox">
+    </div>
+
+    <table id="h2htable">
+        <tr>
+            <td>
+                <div class="h2hplayer" id="player1">Player 1</div>
+            </td>
+
+            <td>
+                <img src="/images/h2h_buttons/active_1.png" class="h2hbutton"   id="p1_q0_active" />
+                <img src="/images/h2h_buttons/correct.png" class="h2hbutton"    id="p1_q0_correct" style="display:none;"/>
+                <img src="/images/h2h_buttons/wrong.png" class="h2hbutton"      id="p1_q0_wrong" style="display:none;"/>
+            </td>
+
+            <td>
+                <img src="/images/h2h_buttons/active_2.png" class="h2hbutton"   id="p1_q2_active" />
+                <img src="/images/h2h_buttons/correct.png" class="h2hbutton"    id="p1_q2_correct" style="display:none;"/>
+                <img src="/images/h2h_buttons/wrong.png" class="h2hbutton"      id="p1_q2_wrong" style="display:none;"/>
+            </td>
+
+            <td>
+                <img src="/images/h2h_buttons/active_3.png" class="h2hbutton"   id="p1_q4_active" />
+                <img src="/images/h2h_buttons/correct.png" class="h2hbutton"    id="p1_q4_correct" style="display:none;"/>
+                <img src="/images/h2h_buttons/wrong.png" class="h2hbutton"      id="p1_q4_wrong" style="display:none;"/>
+            </td>
+
+            <td>
+                <img src="/images/h2h_buttons/active_4.png" class="h2hbutton"   id="p1_q6_active" />
+                <img src="/images/h2h_buttons/correct.png" class="h2hbutton"    id="p1_q6_correct" style="display:none;"/>
+                <img src="/images/h2h_buttons/wrong.png" class="h2hbutton"      id="p1_q6_wrong" style="display:none;"/>
+            </td>
+
+            <td>
+                <img src="/images/h2h_buttons/active_5.png" class="h2hbutton"   id="p1_q8_active" />
+                <img src="/images/h2h_buttons/correct.png" class="h2hbutton"    id="p1_q8_correct" style="display:none;"/>
+                <img src="/images/h2h_buttons/wrong.png" class="h2hbutton"      id="p1_q8_wrong" style="display:none;"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div class="h2hplayer" id="player2">Player 2</div>
+            </td>
+
+            <td>
+                <img src="/images/h2h_buttons/active_1.png" class="h2hbutton"   id="p2_q1_active" />
+                <img src="/images/h2h_buttons/correct.png" class="h2hbutton"    id="p2_q1_correct" style="display:none;"/>
+                <img src="/images/h2h_buttons/wrong.png" class="h2hbutton"      id="p2_q1_wrong" style="display:none;"/>
+            </td>
+
+            <td>
+                <img src="/images/h2h_buttons/active_2.png" class="h2hbutton"   id="p2_q3_active" />
+                <img src="/images/h2h_buttons/correct.png" class="h2hbutton"    id="p2_q3_correct" style="display:none;"/>
+                <img src="/images/h2h_buttons/wrong.png" class="h2hbutton"      id="p2_q3_wrong" style="display:none;"/>
+            </td>
+
+            <td>
+                <img src="/images/h2h_buttons/active_3.png" class="h2hbutton"   id="p2_q5_active" />
+                <img src="/images/h2h_buttons/correct.png" class="h2hbutton"    id="p2_q5_correct" style="display:none;"/>
+                <img src="/images/h2h_buttons/wrong.png" class="h2hbutton"      id="p2_q5_wrong" style="display:none;"/>
+            </td>
+
+            <td>
+                <img src="/images/h2h_buttons/active_4.png" class="h2hbutton"   id="p2_q7_active" />
+                <img src="/images/h2h_buttons/correct.png" class="h2hbutton"    id="p2_q7_correct" style="display:none;"/>
+                <img src="/images/h2h_buttons/wrong.png" class="h2hbutton"      id="p2_q7_wrong" style="display:none;"/>
+            </td>
+
+            <td>
+                <img src="/images/h2h_buttons/active_5.png" class="h2hbutton"   id="p2_q9_active" />
+                <img src="/images/h2h_buttons/correct.png" class="h2hbutton"    id="p2_q9_correct" style="display:none;"/>
+                <img src="/images/h2h_buttons/wrong.png" class="h2hbutton"      id="p2_q9_wrong" style="display:none;"/>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Javascript includes -->
+    <script type="text/javascript" src="/javascripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/javascripts/HeadToHead.js"></script>
+  </body>
+</html>

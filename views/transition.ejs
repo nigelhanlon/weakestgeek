@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weakest Geek!</title>
+    <link rel='stylesheet' href='/stylesheets/transitionScreen.css' />
+  </head>
+  <body>
+    <center>
+        <br/>
+        <img src="/images/banner.png" id="gamebanner"/>
+        <br/>
+        <div id="roundmsg" style="display:none" class="messages">
+            <h2>Round <span id="roundid"></span>!</h2>
+            <blink>Teams Ready?</blink>
+        </div>
+
+        <div id="round_end_msg" style="display:none" class="messages">
+            <h2>Round</h2>
+            <h2><blink>Complete!</blink></h2>
+        </div>
+
+        <div id="vote_msg" style="display:none" class="messages">
+            <h2>Who is the</h2>
+            <h2>Weakest</h2>
+            <h2>Geek?</h2>
+        </div>
+
+        <div id="eliminated_msg" style="display:none" class="messages">
+            <h2>You are the Weakest Geek!</h2>
+            <img src="/images/duckhuntdog.gif" />
+        </div>
+
+        <div id="h2h_msg" style="display:none" class="messages">
+            <p id="final">Final Round!</p>
+            <img src="/images/donkeykong.gif" />
+        </div>
+
+        <div id="winner_msg" style="display:none">
+            <h2 style="font-size:40px;"><blink>A WINNER IS YOU!</blink></h2>
+
+            <H2 style="font-size:40px;">NEW HIGH SCORE <span id="banktotal"></span> pts</H2>
+            <br/>
+            <img src="/images/mario-peachtransparent.png" style="border-radius: 20px;" />
+        </div>
+    </center>
+
+    <!-- Javascript includes -->
+    <script type="text/javascript" src="/javascripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.ba-bbq.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function(){
+
+            socket = io.connect(window.location.host);
+
+            socket.on('uievent', function (data) {
+                if(data.event == 'loadpage')
+                {
+                    window.location.href = "http://" + window.location.host + "/" + data.page;
+                }
+                else if(data.event == 'changebanner')
+                {
+                    changebanner(data);
+                }
+            });
+
+            // Check if we have options to parse;
+            queryToObj();
+
+        });
+
+        function queryToObj()
+        {
+            var query = jQuery.deparam.querystring();
+            // API
+            // banner = [start|end|vote|eliminated|winner|head2head]
+            // round= X
+            // bank = XYZ
+            if(query.banner)
+            {
+                changebanner(query);
+            }
+        }
+
+        function changebanner(data)
+        {
+            switch(data.banner)
+            {
+                case 'start':
+                    jQuery('.messages').hide();
+                    jQuery('#roundid').html(data.round);
+                    jQuery('#roundmsg').show();
+                break;
+
+                case 'end':
+                    jQuery('.messages').hide();
+                    jQuery('#round_end_msg').show();
+                break;
+
+                case 'head2head':
+                    jQuery('.messages').hide();
+                    jQuery('#h2h_msg').show();
+                break;
+
+                case 'vote':
+                    jQuery('.messages').hide();
+                    jQuery('#vote_msg').show();
+                break;
+
+                case 'eliminated':
+                    jQuery('.messages').hide();
+                    jQuery('#eliminated_msg').show();
+                break;
+
+                case 'winner':
+                    jQuery('.messages').hide();
+                    jQuery('#banktotal').html(data.bank);
+                    jQuery('#winner_msg').show();
+                break;
+
+                case 'gameover':
+                    jQuery('.messages').hide();
+                    jQuery('#gamebanner').hide();
+                    jQuery('body').css('background-image', 'url(/images/gameover.png)');
+                    jQuery('body').css('background-repeat','no-repeat');
+                break;
+
+                default:
+                    jQuery('.messages').hide();
+                break;
+            }
+        }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+@-webkit-keyframes blink {
+  from { opacity: 1.0; }
+  to { opacity: 0.0; }
+}
+
+blink {
+  -webkit-animation-name: blink;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+  -webkit-animation-duration: 1s;
+}
+
+.start{
+    font-size:30px;
+    color: black;
+    font-weight: bold;
+}
+
+#gamebanner{ height: 50px; }
+
+#round_table{ color: black; font-size: 16px; width: 380px; border: 1px solid gray; padding: 30px; border-radius: 16px;}
+
+.key{ font-weight: bold; }
+
+#ontheclock{ color: black; font-size: 16px; }
+
+.clockStyle {
+    background-color:#000;
+    border:#999 2px inset;
+    padding:6px;
+    color:#0FF;
+    font-family:"Arial Black", Gadget, sans-serif;
+        font-size:50px;
+        font-weight:bold;
+    letter-spacing: 2px;
+    display:inline;
+}
+
+#rightbutton{ background: green; color: white;}
+#wrongbutton{ background: red; color: white;}
+#bankbutton{  background: yellow; color: black;}
+
+#answerbox{ text-align: center; font-size: 18px; font-weight: bold; }
+#questionbox{ text-align: center;  font-size: 18px; font-weight: bold; }

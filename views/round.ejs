@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>Weakest Geek!</title>
+    <link rel='stylesheet' href='/stylesheets/GameUI.css' />
+  </head>
+  <body>
+    <img src="/images/banner.png" id="gamebanner" />
+    <div id="questionbox"><br/>Are you Ready?</div>
+    <table id="banktable">
+        <tr>
+            <td>
+                <img src="/images/bluebuttons/1000button.png" id="bluescore1000" class="wlbutton" />
+                <img src="/images/redbuttons/1000button.png" id="redscore1000" class="wlbutton" style="display:none;"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="/images/bluebuttons/800button.png" id="bluescore800" class="wlbutton" />
+                <img src="/images/redbuttons/800button.png" id="redscore800" class="wlbutton" style="display:none;"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="/images/bluebuttons/600button.png" id="bluescore600" class="wlbutton" />
+                <img src="/images/redbuttons/600button.png" id="redscore600" class="wlbutton" style="display:none;"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="/images/bluebuttons/450button.png" id="bluescore450" class="wlbutton" />
+                <img src="/images/redbuttons/450button.png" id="redscore450" class="wlbutton" style="display:none;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="/images/bluebuttons/300button.png" id="bluescore300" class="wlbutton" />
+                <img src="/images/redbuttons/300button.png" id="redscore300" class="wlbutton" style="display:none;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="/images/bluebuttons/200button.png" id="bluescore200" class="wlbutton" />
+                <img src="/images/redbuttons/200button.png" id="redscore200" class="wlbutton" style="display:none;"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="/images/bluebuttons/100button.png" id="bluescore100" class="wlbutton" />
+                <img src="/images/redbuttons/100button.png" id="redscore100" class="wlbutton" style="display:none;"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="/images/bluebuttons/50button.png" id="bluescore50" class="wlbutton" />
+                <img src="/images/redbuttons/50button.png" id="redscore50" class="wlbutton" style="display:none;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="/images/bluebuttons/20button.png" id="bluescore20" class="wlbutton" />
+                <img src="/images/redbuttons/20button.png" id="redscore20" class="wlbutton" style="display:none;" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span id="banktotal">0</span>
+                <img src="/images/redbutton.png" id="bank" class="wlbutton" />
+            </td>
+        </tr>
+    </table>
+
+    <div id="timer">0:00</div>
+    <!-- Javascript includes -->
+    <script type="text/javascript" src="/javascripts/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/javascripts/GameUI.js"></script>
+  </body>
+</html>
