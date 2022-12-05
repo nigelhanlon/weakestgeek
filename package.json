@@ -20,7 +20,7 @@
     "url": "https://github.com/nigelhanlon/immortalbloodlines/issues"
   },
   "dependencies": {
-    "express": "4.16.0",
+    "express": "4.17.3",
     "ejs": "*",
     "stylus": "*",
     "socket.io": "*",
